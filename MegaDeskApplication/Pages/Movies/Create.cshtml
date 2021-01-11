@@ -1,0 +1,82 @@
+﻿@page
+@model MegaDeskApplication.Pages.Movies.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Movie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Movie.CustomerName" class="control-label"></label>
+                <input asp-for="Movie.CustomerName" class="form-control" />
+                <span asp-validation-for="Movie.CustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.QuoteDate" class="control-label"></label>
+                <input asp-for="Movie.QuoteDate" class="form-control" />
+                <span asp-validation-for="Movie.QuoteDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.Width" class="control-label"></label>
+                <input asp-for="Movie.Width" class="form-control" />
+                <span asp-validation-for="Movie.Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.Length" class="control-label"></label>
+                <input asp-for="Movie.Length" class="form-control" />
+                <span asp-validation-for="Movie.Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.Drawers" class="control-label"></label>
+                <input asp-for="Movie.Drawers" class="form-control" />
+                <span asp-validation-for="Movie.Drawers" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="Movie.QuotePrice" class="control-label"></label>
+            <input id="QuotePrice" asp-for="Movie.QuotePrice" class="form-control" />
+            <span asp-validation-for="Movie.QuotePrice" class="text-danger"></span>
+        </div>*@
+        <div class="form-group">
+            <label asp-for="Movie.Delivery" class="control-label"></label>
+            @*<input asp-for="Movie.Delivery" class="form-control" />*@
+            <select asp-for="Movie.Delivery" class="form-control">
+                <option value="3days">3 days</option>
+                <option value="5days">5 days</option>
+                <option value="7days">7 days</option>
+                <option value="noRush">No Rush</option>
+            </select>
+            <span asp-validation-for="Movie.Delivery" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Movie.DesktopMaterial" class="control-label"></label>
+            @*<input asp-for="Movie.DesktopMaterial" class="form-control" />*@
+            <select asp-for="Movie.DesktopMaterial" class="form-control">
+                <option value="Laminate">Laminate</option>
+                <option value="Oak">Oak</option>
+                <option value="Rosewood">Rosewood</option>
+                <option value="Veneer">Veneer</option>
+                <option value="Pine">Pine</option>
+            </select>         
+            <span asp-validation-for="Movie.DesktopMaterial" class="text-danger"></span>
+        </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
